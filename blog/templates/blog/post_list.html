@@ -1,8 +1,24 @@
 <html>
     <head>
-        <title>Colby's blog test</title>
+        <title>Colby's blog</title>
     </head>
     <body>
+
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
+<br>
+<br>
+<br><br>
+    {{ posts }}
+
+
         <p>Hi there!</p>
         <br>
         <p>It works!</p>
