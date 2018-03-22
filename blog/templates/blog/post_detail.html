@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 
+
 {% block content %}
 {% if post.published_date %}
     <div class="date">
@@ -15,6 +16,25 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
+
+
+<!--
+<div class='tableauPlaceholder' id='viz1519671613764' style='position: relative'>
+    <noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;7K&#47;7KSPF3N8P&#47;1_rss.png' style='border: none' /></a></noscript>
+    <object class='tableauViz'  style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='path' value='shared&#47;7KSPF3N8P' />
+        <param name='toolbar' value='no' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;7K&#47;7KSPF3N8P&#47;1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='device' value='tablet'/>
+        <param name='display_count' value='yes' /></object></div>
+<script type='text/javascript'>                    var divElement = document.getElementById('viz1519671613764');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='500px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+-->
 
 
 <hr>
@@ -43,6 +63,15 @@
     <div class="temperature">
         <div class="date"> {{ temperature.date|date:"F jS o" }}</div>
         <strong> Temperature: {{ temperature.temperature }}</strong>
+    </div>
+{% empty %}
+    <p>No temperature here yet :(</p>
+{% endfor %}
+
+{% for temperature in post.temperatures.all %}
+    <div class="temperature">
+        <div class="date"> {{ temperature.date|date:"F jS o" }}</div>
+        <strong> Temperature: {{ post.temperature }}</strong>
     </div>
 {% empty %}
     <p>No temperature here yet :(</p>
