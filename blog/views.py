@@ -87,3 +87,8 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+def dailylog(request, date='2018-03-21'):
+    return render(request, 'blog/dailylog.html',{})
+
+#https://stackoverflow.com/questions/41212865/django-url-that-captures-yyyy-mm-dd-date
